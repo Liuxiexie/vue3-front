@@ -25,7 +25,9 @@ watch(isVisible, (val) => {
       </transition>
       <!-- 弹出层 -->
       <transition name="popup-down-up">
-        <div v-if="isVisible" v-bind="$attrs" class="w-screen bg-white z-50 fixed bottom-0">我是弹出层</div>
+        <div v-if="isVisible" v-bind="$attrs" class="w-screen bg-white z-50 fixed bottom-0">
+          <slot></slot>
+        </div>
       </transition>
     </teleport>
   </div>

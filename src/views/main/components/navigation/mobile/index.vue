@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onBeforeUpdate, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
+import menuVue from '@/views/main/components/menu/index.vue'
 defineProps({
   data: {
     type: Array,
@@ -46,6 +47,7 @@ watch(currentItemIndex, (val) => {
 // item 点击事件
 const onItemClick = (index) => {
   currentItemIndex.value = index
+  popupVisible.value = false
 }
 
 // 控制弹出层显示
@@ -72,7 +74,9 @@ const onShowPopup = () => {
       </li>
     </ul>
     <!-- 弹出层 -->
-    <m-popup v-model="popupVisible"></m-popup>
+    <m-popup v-model="popupVisible">
+      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
+    </m-popup>
   </div>
 </template>
 
