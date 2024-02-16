@@ -1,8 +1,26 @@
 <script setup>
+import headerSearchVue from './header-search/index.vue'
+import headerMyVue from './header-my.vue'
+import headerThemeVue from './header-theme.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const onToHome = () => {
+  router.push('/')
+}
 </script>
 
 <template>
-  <div>Header</div>
+  <div class="w-full bg-white border-b border-b-zinc-300 px-2 py-1">
+    <div class="flex items-center">
+      <img @click="onToHome" class="max-h-4 cursor-pointer mr-2"
+        src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png" alt="">
+      <header-search-vue class="mr-2"></header-search-vue>
+      <header-theme-vue class="mr-2"></header-theme-vue>
+      <header-my-vue></header-my-vue>
+    </div>
+  </div>
 </template>
 
 <style lang='scss' scoped>
