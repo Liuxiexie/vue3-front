@@ -14,6 +14,8 @@
       <m-svg-icon name="input-delete" class="w-1.5 max-h-1.5 absolute translate-y-[-50%] top-[50%] right-8"></m-svg-icon>
       <!-- 分割线 -->
       <div class="min-h-1.5 w-[1px] absolute translate-y-[-50%] top-[50%] right-6 bg-zinc-400"></div>
+      <!-- 搜索图标 -->
+      <m-button class="absolute translate-y-[-50%] top-[50%] right-1 rounded-full" type="main" icon="search" iconColor="#ffffff"></m-button>
     </div>
     <!-- 下拉区 -->
     <transition name="slide">
