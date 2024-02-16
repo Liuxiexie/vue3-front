@@ -47,6 +47,12 @@ watch(currentItemIndex, (val) => {
 const onItemClick = (index) => {
   currentItemIndex.value = index
 }
+
+// 控制弹出层显示
+const popupVisible = ref(false)
+const onShowPopup = () => {
+  popupVisible.value = true
+}
 </script>
 
 <template>
@@ -55,7 +61,7 @@ const onItemClick = (index) => {
       <!-- 滑块 -->
       <li :style="sliderStyle" ref="sliderTarget" class="absolute bg-black h-[22px] rounded-lg duration-200"></li>
       <!-- 汉堡按钮 -->
-      <li class="fixed top-0 right-[-1px] h-4 p-1 flex items-center bg-white z-20 shadow-l-white">
+      <li @click="onShowPopup" class="fixed top-0 right-[-1px] h-4 p-1 flex items-center bg-white z-20 shadow-l-white">
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>
       </li>
       <li :class="{
@@ -65,6 +71,8 @@ const onItemClick = (index) => {
         {{ item.name }}
       </li>
     </ul>
+    <!-- 弹出层 -->
+    <m-popup v-model="popupVisible"></m-popup>
   </div>
 </template>
 
