@@ -1,6 +1,9 @@
 <script>
 import { nextTick, ref, watch } from 'vue'
 
+// 延时时间
+const DELAY_TIME = 100
+
 // 指定所有生成位置的常量
 // 左上
 const PROP_TOP_LEFT = 'top-left'
@@ -51,11 +54,18 @@ const isVisible = ref(false)
 // 鼠标移入
 const onMouseenter = () => {
   isVisible.value = true
+  if (timeout) {
+    clearTimeout(timeout)
+  }
 }
 
 // 鼠标移出
+let timeout
 const onMouseleave = () => {
-  isVisible.value = false
+  timeout = setTimeout(() => {
+    isVisible.value = false
+    clearTimeout(timeout)
+  }, DELAY_TIME);
 }
 
 // 获取元素的 DOM, 创建读取元素尺寸的方法

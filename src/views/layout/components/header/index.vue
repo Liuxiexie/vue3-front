@@ -16,8 +16,8 @@ const onToHome = () => {
     <div class="flex items-center">
       <img @click="onToHome" class="max-h-4 cursor-pointer mr-2"
         src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png" alt="">
-      <header-search-vue class="mr-2"></header-search-vue>
-      <header-theme-vue class="mr-2"></header-theme-vue>
+      <header-search-vue class="mr-1"></header-search-vue>
+      <header-theme-vue class="mr-1"></header-theme-vue>
       <header-my-vue></header-my-vue>
     </div>
   </div>
