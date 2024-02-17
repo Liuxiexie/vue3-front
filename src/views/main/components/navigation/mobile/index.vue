@@ -2,12 +2,6 @@
 import { ref, onBeforeUpdate, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
 import menuVue from '@/views/main/components/menu/index.vue'
-defineProps({
-  data: {
-    type: Array,
-    required: true
-  }
-})
 
 // 当前选中的 item 下标
 const currentItemIndex = ref(0)
@@ -68,14 +62,14 @@ const onShowPopup = () => {
       </li>
       <li :class="{
         'text-zinc-100': currentItemIndex === index
-      }" @click="onItemClick(index)" :ref="setItemRef" v-for="(item, index) in data" :key="item.id"
+      }" @click="onItemClick(index)" :ref="setItemRef" v-for="(item, index) in $store.getters.categorys" :key="item.id"
         class="shrink-0 px-1.5 py-0.5 z-10 duration-200 last:mr-4">
         {{ item.name }}
       </li>
     </ul>
     <!-- 弹出层 -->
     <m-popup v-model="popupVisible">
-      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
+      <menu-vue @onItemClick="onItemClick"></menu-vue>
     </m-popup>
   </div>
 </template>
