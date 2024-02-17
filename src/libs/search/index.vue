@@ -68,15 +68,26 @@ const onBlurHandler = () => {
 </script>
 
 <template>
-  <div ref="containerTarget" class="group relative w-full border-white rounded-xl p-0.5 hover:bg-red-100/50 duration-500">
+  <div ref="containerTarget"
+    class="group relative w-full border-white dark:border-zinc-200 rounded-xl p-0.5 hover:bg-red-100/50 duration-500">
     <div>
       <!-- 搜索图标 -->
       <m-svg-icon name="search" color='#707070'
         class="w-1.5 max-h-1.5 absolute translate-y-[-50%] top-[50%] left-2"></m-svg-icon>
       <!-- 输入框 -->
       <input type="text" placeholder="搜索" v-model="inputValue" @keyup="onSearchHandler" @blur="onBlurHandler"
-        @focus="onFocusHandler"
-        class="group-hover:border-zinc-100 group-hover:bg-white duration-500 block bg-zinc-100 text-sm w-full h-[44px] pl-4 rounded-xl outline-0 border-zinc-200 caret-zinc-700 border focus:border-red-300">
+        @focus="onFocusHandler" class="group-hover:bg-white dark:group-hover:bg-zinc-900
+           group-hover:border-zinc-200 dark:group-hover:border-zinc-200
+            duration-500 block w-full h-[44px] 
+            pl-4 outline-0
+            bg-zinc-100 dark:bg-zinc-800
+            caret-zinc-400
+            rounded-xl
+            text-zinc-900 dark:text-zinc-200
+            text-sm tracking-wide 
+            font-semibold border
+            border-zinc-100 dark:border-zinc-700
+            focus:border-red-300">
       <!-- 删除图标 -->
       <m-svg-icon @click="onClearHandler" v-show="inputValue" name="input-delete"
         class="w-1.5 max-h-1.5 absolute translate-y-[-50%] top-[50%] right-8 cursor-pointer"></m-svg-icon>
@@ -92,7 +103,7 @@ const onBlurHandler = () => {
     <!-- 下拉区 -->
     <transition name="slide">
       <div v-if="$slots.dropdown" v-show="isFocus"
-        class="w-full max-h-[500px] absolute top-[56px] rounded-md left-0 p-2 z-20 text-base duration-500 overflow-auto bg-white border border-zinc-200 hover:drop-shadow-xl">
+        class="w-full max-h-[500px] absolute top-[56px] rounded-md left-0 p-2 z-20 text-base duration-500 overflow-auto bg-white dark:bg-zinc-800  border border-zinc-200 dark:border-zinc-600 hover:drop-shadow-xl">
         <slot name="dropdown"></slot>
       </div>
     </transition>

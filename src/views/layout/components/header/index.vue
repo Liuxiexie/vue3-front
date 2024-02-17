@@ -12,7 +12,7 @@ const onToHome = () => {
 </script>
 
 <template>
-  <div class="w-full bg-white border-b border-b-zinc-300 px-2 py-1">
+  <div class="w-full bg-white dark:bg-zinc-800 border-b border-b-zinc-300 dark:border-b-zinc-700 px-2 py-1 duration-500">
     <div class="flex items-center">
       <img @click="onToHome" class="max-h-4 cursor-pointer mr-2"
         src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png" alt="">

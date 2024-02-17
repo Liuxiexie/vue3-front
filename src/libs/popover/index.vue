@@ -125,7 +125,8 @@ watch(isVisible, (val) => {
     </div>
     <!-- 匿名插槽: 弹出弹层中展示的内容 -->
     <transition name="slide">
-      <div ref="contentTarget" v-show="isVisible" :style="contentStyle" class="absolute p-1 bg-white rounded-md border">
+      <div ref="contentTarget" v-show="isVisible" :style="contentStyle"
+        class="absolute p-1 z-20 bg-white dark:bg-zinc-900 rounded-md border dark:border-zinc-700">
         <slot></slot>
       </div>
     </transition>
